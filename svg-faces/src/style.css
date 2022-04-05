@@ -24,7 +24,15 @@
 body {
 
 }
-
+section{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+svg{
+  width: 30vw;
+}
 
 /******************************************
 /* LAYOUT
