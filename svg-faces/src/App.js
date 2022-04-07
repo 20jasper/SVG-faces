@@ -1,6 +1,6 @@
-import { arc } from 'd3'
 import { BackgroundCircle } from './components/BackgroundCircle'
 import { Eyes } from './components/Eyes'
+import { CurvedMouth } from './components/CurvedMouth'
 const width = 500
 const height = 500
 const strokeWidth = 10
@@ -16,20 +16,9 @@ const eyeRadius = centerY / 6 - strokeWidth / 2
 
 const outerRadius = 50
 const innerRadius = outerRadius - strokeWidth
-const mouthArcHappy = arc()
-  .innerRadius(innerRadius)
-  .outerRadius(outerRadius)
-  .startAngle(Math.PI * 3 / 4)
-  .endAngle(Math.PI * 5 / 4)
-const mouthArcMad = arc()
-  .innerRadius(innerRadius)
-  .outerRadius(outerRadius)
-  .startAngle(Math.PI * 7 / 4)
-  .endAngle(Math.PI * 9 / 4)
 
 const madEyebrowRotation = 35
 const sadMouthTransform = 10
-
 
 function App() {
   return (
@@ -50,7 +39,12 @@ function App() {
               eyeRadius={eyeRadius}
               strokeWidth={strokeWidth}
             />
-            <path d={mouthArcHappy()}></path>
+            <CurvedMouth
+              innerRadius={innerRadius}
+              outerRadius={outerRadius}
+              startAngle={Math.PI * 3 / 4}
+              endAngle={Math.PI * 5 / 4}
+            />
           </g>
         </svg>
         <svg viewBox={`0 0 ${width} ${height}`} aria-labelledby="sadFaceTitle sadFaceID">
@@ -103,7 +97,15 @@ function App() {
               {`translate(${- eyeOffsetX - 20} ${-(eyeOffsetY + eyeRadius + 57)})
             rotate(${madEyebrowRotation})`}
             ></rect>
-            <path d={mouthArcMad()} transform="translate(0 75)"></path>
+            {/* <path d={mouthArcMad()} transform="translate(0 75)"></path> */}
+            <CurvedMouth
+              innerRadius={innerRadius}
+              outerRadius={outerRadius}
+              startAngle={Math.PI * 7 / 4}
+              endAngle={Math.PI * 9 / 4}
+              translateX={0}
+              translateY={0}
+            />
           </g>
         </svg>
       </section>
