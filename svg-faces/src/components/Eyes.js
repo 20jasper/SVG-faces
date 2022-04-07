@@ -1,0 +1,20 @@
+export const Eyes = ({ eyeOffsetX, eyeOffsetY, eyeRadius, strokeWidth }) => (
+    <>
+        <circle
+            cx={-eyeOffsetX}
+            cy={-eyeOffsetY}
+            r={eyeRadius}
+            fill="black"
+            stroke="black"
+            strokeWidth={strokeWidth}
+        />
+        <circle
+            cx={eyeOffsetX}
+            cy={-eyeOffsetY}
+            r={eyeRadius}
+            fill="black"
+            stroke="black"
+            strokeWidth={strokeWidth}
+        />
+    </>
+)
